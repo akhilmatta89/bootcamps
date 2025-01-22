@@ -106,3 +106,43 @@ SELECT * FROM myemployees where age>80;
 
 -- Select all columns for everyone whose last name ends in “ith”.
 SELECT * FROM myemployees where lastname LIKE "%ith";
+
+-- Jonie Weber just got married to Bob Williams. She has requested that her last name be
+-- updated to Weber-Williams.
+UPDATE myemployees SET lastname="Williams" WHERE firstname="Jonie" AND lastname="Weber";
+SELECT * FROM myemployees;
+
+-- Dirk Smith’s birthday is today, add 1 to his age.
+UPDATE myemployees set age=age+1 where firstname="Dirk" AND lastname="Smith";
+SELECT * FROM myemployees;
+
+-- All secretaries are now called “Administrative Assistant”. Update all titles accordingly.
+UPDATE myemployees set title="Administrative Assistant" WHERE title="Secretary";
+SELECT * FROM myemployees;
+
+-- Everyone that’s making under 30000 are to receive a 3500 a year raise
+UPDATE myemployees set salary=salary+3500 WHERE salary<30000;
+SELECT * FROM myemployees;
+
+-- Everyone that’s making over 33500 are to receive a 4500 a year raise
+UPDATE myemployees set salary=salary+4500 WHERE salary>33500;
+SELECT * FROM myemployees;
+
+-- All “Programmer II” titles are now promoted to “Programmer III”.
+UPDATE myemployees set title="Programmer III" WHERE title="Programmer II";
+SELECT * FROM myemployees;
+
+-- All “Programmer” titles are now promoted to “Programmer II”
+UPDATE myemployees set title="Programmer II" where title="Programmer";
+SELECT * FROM myemployees;
+
+-- Jonie Williams just quit, remove her record from the table.
+DELETE FROM myemployees WHERE firstname="Jonie" AND lastname="Williams";
+SELECT * FROM myemployees;
+
+-- It’s time for budget cuts. Remove all employees who are making over 70000 dollars.
+DELETE FROM myemployees WHERE salary>70000;
+SELECT * FROM myemployees;
+
+DELETE FROM myemployees WHERE age>=29 and salary=22000;
+SELECT * FROM myemployees;
